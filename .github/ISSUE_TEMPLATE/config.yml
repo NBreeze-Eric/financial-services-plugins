@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "🌍 Issue about US / global market data sources (Daloopa, FactSet, Morningstar, etc.)"
+    url: https://github.com/anthropics/financial-services-plugins/issues
+    about: "This fork only supports Chinese A-share / iFinD data. For issues about the original foreign-data MCPs, please file them on the upstream repo. 本 fork 只支持中国 A 股 / iFinD 数据源；海外数据源相关问题请到上游仓库提交。"
+  - name: "📖 iFinD setup help / iFinD 安装帮助"
+    url: https://github.com/NBreeze-Eric/financial-services-plugins/blob/main/docs/IFIND-SETUP.md
+    about: "Read the bilingual setup guide first — most install issues are covered there. 请先看双语安装指南，常见问题已覆盖。"

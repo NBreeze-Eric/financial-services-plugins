@@ -45,3 +45,8 @@ coverage/
 TASKS.md
 MEMORY.md
 .claude/worktrees/
+
+# Claude Code local settings — may contain IFIND_AUTH bearer token, NEVER commit
+.claude/settings.local.json
+**/.claude/settings.local.json
+.claude.json

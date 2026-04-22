@@ -1,3 +1,30 @@
+<!-- ============================================================ -->
+<!--  FORK NOTICE — 中国 A 股 / 同花顺 iFinD 本地化版本             -->
+<!-- ============================================================ -->
+
+> ## 🇨🇳 This is a fork — Chinese A-share / iFinD edition
+>
+> **EN:** This repository is a fork of [`anthropics/financial-services-plugins`](https://github.com/anthropics/financial-services-plugins), modified to replace the original 11 foreign data MCPs (Daloopa, FactSet, Morningstar, S&P/Kensho, Moody's, MT Newswires, Aiera, LSEG, PitchBook, Chronograph, Egnyte) with **4 Hexin iFinD MCPs** (同花顺) for Chinese stock, fund, macro, and news data. **Use this fork only if you analyze Chinese markets (A-shares, HK, etc.).** For US/global markets, please use the upstream repo.
+>
+> **中文：** 本仓库 fork 自 [`anthropics/financial-services-plugins`](https://github.com/anthropics/financial-services-plugins)，将原版 11 个海外数据 MCP（Daloopa、FactSet、Morningstar、S&P/Kensho、Moody's、MT Newswires、Aiera、LSEG、PitchBook、Chronograph、Egnyte）替换为**同花顺 iFinD 的 4 个 MCP**（个股 / 基金 / 宏观 / 新闻公告）。**仅适用于中国市场（A 股、港股等）分析**；如需海外市场，请使用上游原版仓库。
+>
+> **What changed / 改动概览**
+> - `financial-analysis/.mcp.json` → 11 foreign MCPs replaced with 4 `hexin-ifind-ds-*` MCPs
+> - 11 SKILL.md files in `financial-analysis/` and `equity-research/` → CN data-sourcing rule injected
+> - `plugin.json` versions bumped to `0.1.1-cn`
+> - Setup guide: see [`docs/IFIND-SETUP.md`](./docs/IFIND-SETUP.md) (bilingual)
+> - Full change log: see [`CHANGES-CN.md`](./CHANGES-CN.md) (bilingual)
+>
+> **Upstream sync policy / 上游同步策略**
+> - This fork tracks upstream `main` and is manually rebased when notable upstream changes land. No automatic sync.
+> - 本 fork 跟踪上游 `main` 分支，遇到上游重要更新时手动 rebase，不做自动同步。
+>
+> **License / 许可证：** Original work © Anthropic, Apache-2.0. Modifications © 2026 NBreeze-Eric (`256726122+NBreeze-Eric@users.noreply.github.com`), released under the same Apache-2.0 license. See [`LICENSE`](./LICENSE) and [`NOTICE`](./NOTICE).
+
+<!-- ============================================================ -->
+<!--  Original upstream README follows ↓↓↓                         -->
+<!-- ============================================================ -->
+
 # Claude for Financial Services Plugins
 
 Plugins that turn Claude into a specialist for financial services — investment banking, equity research, private equity, and wealth management. Built for [Claude Cowork](https://claude.com/product/cowork), also compatible with [Claude Code](https://claude.com/product/claude-code).

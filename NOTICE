@@ -1,0 +1,29 @@
+Claude for Financial Services Plugins — Chinese A-share / iFinD edition
+========================================================================
+
+Original work
+-------------
+Copyright (c) Anthropic, PBC.
+Licensed under the Apache License, Version 2.0 (the "License").
+Source: https://github.com/anthropics/financial-services-plugins
+
+Modifications
+-------------
+Copyright (c) 2026 NBreeze-Eric <256726122+NBreeze-Eric@users.noreply.github.com>
+Licensed under the Apache License, Version 2.0 (the "License").
+
+Summary of modifications (per Apache-2.0 §4(b)):
+  - Replaced 11 foreign-market MCP integrations
+    (Daloopa, FactSet, Morningstar, S&P/Kensho, Moody's, MT Newswires,
+    Aiera, LSEG, PitchBook, Chronograph, Egnyte) in
+    financial-analysis/.mcp.json with 4 Hexin iFinD MCPs
+    (hexin-ifind-ds-stock-mcp, -fund-mcp, -edb-mcp, -news-mcp)
+    targeting Chinese A-share / HK / fund / macro / news data.
+  - Injected a Chinese-data-sourcing rule header into 11 SKILL.md
+    files under financial-analysis/skills/ and equity-research/skills/.
+  - Bumped financial-analysis and equity-research plugin.json versions
+    from 0.1.0 to 0.1.1-cn and updated their descriptions.
+
+See CHANGES-CN.md for the full change log.
+You may obtain a copy of the License at:
+    http://www.apache.org/licenses/LICENSE-2.0
