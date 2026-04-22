@@ -22,6 +22,152 @@
 > **License / 许可证：** Original work © Anthropic, Apache-2.0. Modifications © 2026 NBreeze-Eric (`256726122+NBreeze-Eric@users.noreply.github.com`), released under the same Apache-2.0 license. See [`LICENSE`](./LICENSE) and [`NOTICE`](./NOTICE).
 
 <!-- ============================================================ -->
+<!--  🚀 5-MINUTE QUICKSTART (for non-developers)                 -->
+<!--  🚀 5 分钟上手（给小白）                                      -->
+<!-- ============================================================ -->
+
+# 🚀 5 分钟上手 / 5-Minute Quickstart
+
+> 没用过 GitHub？没写过代码？完全 OK，跟着下面 4 步走就能用。
+> Never used GitHub? Never written code? It's fine — just follow the 4 steps below.
+
+## 这是什么 / What is this
+
+**中文：** 一套给中国 A 股 / 港股分析师用的 AI 助手"插件"。装好后，你只用一句中文（"帮我估一下贵州茅台"），AI 就会自动从同花顺 iFinD 拉数据、建 Excel 模型、写研报。
+
+**EN:** An AI-assistant "plugin" pack for Chinese A-share / HK equity analysts. Once installed, you can ask in plain Chinese ("estimate Kweichow Moutai for me") and the AI auto-pulls data from Hexin iFinD, builds Excel models, and drafts research reports.
+
+---
+
+## 你能用它做什么 / What you can do
+
+下面是真实跑出来的输出文件（点击下载查看效果），你最终生成的文件应当是类似的水平：
+
+These are real outputs (click to download and inspect), your generated files should be at a similar level:
+
+| 想做什么 / Use case | 一句话指令 / One-line command | 输出 / Output |
+|---|---|---|
+| **可比公司分析** / Comps analysis | `/financial-analysis:comps 600519`<br>("帮我做贵州茅台的可比公司分析") | [`examples/600519_Comps_Analysis.xlsx`](./examples/600519_Comps_Analysis.xlsx) — 自动建好的 Excel，含倍数、统计、benchmarks |
+| **DCF 估值模型** / DCF valuation | `/financial-analysis:dcf 600519`<br>("帮我给贵州茅台做 DCF 估值") | [`examples/600519_DCF_Model.xlsx`](./examples/600519_DCF_Model.xlsx) — 现金流预测 + WACC + 敏感性分析 |
+| **业绩点评研报** / Earnings update | `/equity-research:earnings 000001`<br>("分析平安银行最新财报") | [`examples/PingAn_Bank_FY2025_Earnings_Update.docx`](./examples/PingAn_Bank_FY2025_Earnings_Update.docx) — 8-12 页的 Word 研报 |
+
+> 还可以做：行业研报、初次覆盖报告、催化剂日历、晨会纪要、PPT 改稿、Excel 数据清洗、3 张报表建模、LBO 模型……
+> Also: sector reports, initiating coverage, catalyst calendar, morning notes, PPT refresh, data cleaning, 3-statement modeling, LBO models, ...
+
+---
+
+## 安装 4 步 / Install in 4 steps
+
+### Step 1 — 装一个 AI Agent 终端 / Install an AI agent terminal
+
+任选其一 / Pick one:
+- **Claude Code**（Anthropic 官方）
+- **OpenClaw**（开源替代品）
+
+> 自行搜索安装方式即可；本仓库的所有命令在两个终端里都能跑。
+> Look up the install method on your own; all commands in this repo work in both terminals.
+
+### Step 2 — 申请同花顺 iFinD 账号并拿 token / Get an iFinD account & token
+
+1. 去官网申请账号 / Sign up at: **https://www.51ifind.com**
+2. 登录后 → 终端 → **设置 → WCP 启用** → 复制 bearer token
+3. After login → terminal → **Settings → Enable WCP** → copy the bearer token
+
+> ⚠️ Token 长得像一长串乱码 (eyJhbGc...)。**像密码一样保存**，绝不能发给别人或上传到 GitHub。
+> ⚠️ The token looks like a long random string. **Treat it as a password** — never share or upload it.
+
+### Step 3 — 配置项目设置 / Configure project settings
+
+在你的项目目录里新建文件 `.claude/settings.json`，粘贴：
+Create `.claude/settings.json` in your project directory and paste:
+
+```json
+{
+  "enabledPlugins": {
+    "financial-analysis@financial-services-plugins": true,
+    "equity-research@financial-services-plugins": true
+  },
+  "extraKnownMarketplaces": {
+    "financial-services-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "NBreeze-Eric/financial-services-plugins"
+      }
+    }
+  }
+}
+```
+
+### Step 4 — 配置 token / Drop the token
+
+在**同一个项目目录**里新建 `.claude/settings.local.json`：
+In the **same project directory** create `.claude/settings.local.json`:
+
+```json
+{
+  "env": {
+    "IFIND_AUTH": "把第二步复制的 token 粘到这里 / paste your token here"
+  }
+}
+```
+
+> ✅ `.claude/settings.local.json` 已经在 `.gitignore` 里，永远不会被提交到 GitHub。
+> ✅ This file is already in `.gitignore`, so it will never be committed.
+
+---
+
+## 第一次跑 / First run
+
+打开 Claude Code / OpenClaw，依次输入：
+Open Claude Code / OpenClaw and type:
+
+```
+/plugin marketplace update financial-services-plugins
+/reload-plugins
+```
+
+期望看到 / Expected output:
+```
+Reloaded: 2 plugins · 17 skills · 5 agents · 4 plugin MCP servers
+```
+
+然后试一条 / Then try:
+```
+/financial-analysis:dcf 600519
+```
+
+如果 5 分钟内输出了一份 Excel，恭喜，安装成功 🎉
+If you get an Excel file in ~5 minutes, you're all set 🎉
+
+---
+
+## 出问题怎么办 / Troubleshooting
+
+| 现象 / Symptom | 原因 / Cause | 修复 / Fix |
+|---|---|---|
+| `/reload-plugins` 显示 11 个 MCP 而不是 4 个 / Shows 11 MCP servers instead of 4 | 缓存陈旧，加载到上游版本 / Stale cache, loading upstream version | 见 [`docs/IFIND-SETUP.md`](./docs/IFIND-SETUP.md) "Troubleshooting" |
+| MCP 显示 "needs authentication" 或红叉 / MCP shows "needs authentication" or red X | Token 没配或过期 / Token missing or expired | 重做 Step 2 + Step 4，重启 / Redo Steps 2 & 4, restart |
+| 命令跑了但说找不到数据 / Command runs but data lookup fails | iFinD 配额用完 / iFinD quota exhausted | 登 iFinD 终端看配额 / Check quota in iFinD terminal |
+
+---
+
+## 让 AI 带你装 / Get AI to walk you through it
+
+如果上面看不懂，把下面这段**整段复制**给任何 AI 助手（Claude / ChatGPT / 通义千问 …），它会一步步带你装：
+
+If the above is unclear, copy the prompt below into any AI assistant (Claude / ChatGPT / Qwen / etc.) and it will walk you through:
+
+```
+我想在我的电脑上安装并使用 https://github.com/NBreeze-Eric/financial-services-plugins
+这个仓库。我已经申请了同花顺 iFinD 账号、拿到 bearer token。
+我没用过 Git/GitHub/Claude Code，请一步步带我装：每一步告诉我在哪里输入命令、
+正确的输出应该是什么样的、出错了怎么办。我的操作系统是 Windows / macOS / Linux（请改成你自己的）。
+```
+
+---
+
+<!-- ============================================================ -->
+<!--  📚 For developers / 给开发者：原 README 文档在下方           -->
 <!--  Original upstream README follows ↓↓↓                         -->
 <!-- ============================================================ -->
 

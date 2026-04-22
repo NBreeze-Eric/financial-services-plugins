@@ -95,17 +95,34 @@ Descriptions updated to mention "Chinese A-share / iFinD edition".
 
 ### 5. NOT modified / 未改动的部分
 
-The following plugins and skills are unchanged from upstream — they have no foreign-data dependencies and remain useful as-is:
+#### 5a. Upstream plugins kept unchanged — NOT yet localized / 未做本地化的上游插件（保留原样）
 
-下列插件 / skill 与上游保持一致，因为它们不依赖海外数据源，可以直接使用：
+The following upstream plugins are kept verbatim. **They were NOT localized in this v0.1.1-cn release**, so they still target US/global markets:
+
+下列上游插件保留原样。**本次 v0.1.1-cn 版本未对其做本地化改造**，目前仍面向美国/全球市场：
 
 - `investment-banking/` (entire plugin / 整个插件)
 - `private-equity/` (entire plugin / 整个插件)
 - `wealth-management/` (entire plugin / 整个插件)
 - `claude-in-office/` (entire plugin / 整个插件)
+- `partner-built/lseg/`, `partner-built/spglobal/` (3rd-party partner plugins / 第三方伙伴插件)
+
+**Usability / 可用性:**
+- ✅ **Overseas-market users**: usable as-is. The skills, prompts, and workflow logic are intact. / **海外市场用户**：可直接启用使用，skill 提示词和工作流逻辑都完整。
+- ❌ **Chinese-market users**: **NOT recommended** for now. These plugins reference foreign data MCPs (Bloomberg, FactSet, etc.) that are no longer wired up in this fork. They will fail or fall back to general web search. / **中国市场用户**：**目前不建议使用**。这些插件引用的海外数据 MCP（Bloomberg、FactSet 等）已不再配置，会报错或退化到通用 Web 搜索。
+
+**Future plan / 后续计划:** These plugins may be localized to iFinD in future releases (v0.2.x-cn or later) as time permits. PRs welcome.
+
+后续版本（v0.2.x-cn 或更晚）有机会会逐步本地化到 iFinD 数据源。欢迎 PR 帮忙。
+
+#### 5b. Skills kept unchanged — no data dependency / 与数据无关、原样保留的 skill
+
+The following skills do **not** touch any market data — they're pure spreadsheet/deck utilities — so they work identically for any market:
+
+下列 skill **不**涉及市场数据，是纯 Excel / PPT 工具，对任何市场都同样适用：
+
 - `financial-analysis/skills/{audit-xls, clean-data-xls, ib-check-deck, skill-creator, ppt-template-creator}/`
 - `equity-research/skills/{model-update, morning-note, thesis-tracker, idea-generation}/`
-- `partner-built/` (LSEG and S&P Global partner plugins — left in repo for upstream parity but not enabled by default in this fork's typical setup / 上游伙伴插件，保留以保持目录一致，本 fork 默认不启用)
 
 ---
 
