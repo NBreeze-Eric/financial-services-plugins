@@ -3,6 +3,15 @@ name: earnings-analysis
 description: Create professional equity research earnings update reports (8-12 pages, 3,000-5,000 words) analyzing quarterly results for companies already under coverage. Fast-turnaround format focusing on beat/miss analysis, key metrics, updated estimates, and revised thesis. Includes 1-3 summary tables and 8-12 charts. Use when user requests "earnings update", "quarterly update", "earnings analysis", "Q1/Q2/Q3/Q4 results", or post-earnings report.
 ---
 
+> **Data sourcing rule (CN-localized edition):** For any Chinese-market data lookup, ALWAYS prefer these MCP tools first; only fall back to WebSearch/WebFetch if iFinD lacks the field:
+> - 个股行情/财务/一致预期/估值: `mcp__hexin-ifind-ds-stock-mcp`
+> - 基金/ETF/QDII: `mcp__hexin-ifind-ds-fund-mcp`
+> - 宏观/行业/经济数据 (GDP, CPI, PMI, 利率): `mcp__hexin-ifind-ds-edb-mcp`
+> - 新闻/上市公司公告/研报: `mcp__hexin-ifind-ds-news-mcp`
+>
+> Foreign data sources (Daloopa, FactSet, Morningstar, S&P/Kensho, Bloomberg, Moody's, LSEG, PitchBook, Chronograph, Aiera, MT Newswires, Egnyte) are NOT available — ignore any references to them in the body below and substitute the iFinD equivalent above.
+
+
 # Equity Research Earnings Update
 
 Create professional **EARNINGS UPDATE REPORTS** analyzing quarterly results for companies already under coverage, following institutional standards (JPMorgan, Goldman Sachs, Morgan Stanley format).

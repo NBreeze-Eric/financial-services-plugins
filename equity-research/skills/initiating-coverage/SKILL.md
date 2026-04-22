@@ -3,6 +3,15 @@ name: initiating-coverage
 description: Create institutional-quality equity research initiation reports through a 5-task workflow. Tasks must be executed individually with verified prerequisites - (1) company research, (2) financial modeling, (3) valuation analysis, (4) chart generation, (5) final report assembly. Each task produces specific deliverables (markdown docs, Excel models, charts, or DOCX reports). Tasks 3-5 have dependencies on earlier tasks.
 ---
 
+> **Data sourcing rule (CN-localized edition):** For any Chinese-market data lookup, ALWAYS prefer these MCP tools first; only fall back to WebSearch/WebFetch if iFinD lacks the field:
+> - 个股行情/财务/一致预期/估值: `mcp__hexin-ifind-ds-stock-mcp`
+> - 基金/ETF/QDII: `mcp__hexin-ifind-ds-fund-mcp`
+> - 宏观/行业/经济数据 (GDP, CPI, PMI, 利率): `mcp__hexin-ifind-ds-edb-mcp`
+> - 新闻/上市公司公告/研报: `mcp__hexin-ifind-ds-news-mcp`
+>
+> Foreign data sources (Daloopa, FactSet, Morningstar, S&P/Kensho, Bloomberg, Moody's, LSEG, PitchBook, Chronograph, Aiera, MT Newswires, Egnyte) are NOT available — ignore any references to them in the body below and substitute the iFinD equivalent above.
+
+
 # Initiating Coverage
 
 Create institutional-quality equity research initiation reports through a structured 5-task workflow. Each task must be executed separately with verified inputs.

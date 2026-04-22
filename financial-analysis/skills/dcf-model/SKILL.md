@@ -3,6 +3,15 @@ name: dcf-model
 description: Real DCF (Discounted Cash Flow) model creation for equity valuation. Retrieves financial data from SEC filings and analyst reports, builds comprehensive cash flow projections with proper WACC calculations, performs sensitivity analysis, and outputs professional Excel models with executive summaries. Use when users need to value a company using DCF methodology, request intrinsic value analysis, or ask for detailed financial modeling with growth projections and terminal value calculations.
 ---
 
+> **Data sourcing rule (CN-localized edition):** For any Chinese-market data lookup, ALWAYS prefer these MCP tools first; only fall back to WebSearch/WebFetch if iFinD lacks the field:
+> - 个股行情/财务/一致预期/估值: `mcp__hexin-ifind-ds-stock-mcp`
+> - 基金/ETF/QDII: `mcp__hexin-ifind-ds-fund-mcp`
+> - 宏观/行业/经济数据 (GDP, CPI, PMI, 利率): `mcp__hexin-ifind-ds-edb-mcp`
+> - 新闻/上市公司公告/研报: `mcp__hexin-ifind-ds-news-mcp`
+>
+> Foreign data sources (Daloopa, FactSet, Morningstar, S&P/Kensho, Bloomberg, Moody's, LSEG, PitchBook, Chronograph, Aiera, MT Newswires, Egnyte) are NOT available — ignore any references to them in the body below and substitute the iFinD equivalent above.
+
+
 # DCF Model Builder
 
 ## Overview

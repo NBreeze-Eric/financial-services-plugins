@@ -1,7 +1,7 @@
 {
   "name": "equity-research",
-  "version": "0.1.0",
-  "description": "Equity research tools: earnings analysis, initiating coverage reports, and research workflows",
+  "version": "0.1.1-cn",
+  "description": "Chinese A-share / iFinD edition. Equity research tools (earnings analysis, initiating coverage, catalyst calendar, sector overview) wired to Hexin iFinD MCPs.",
   "author": {
     "name": "Anthropic FSI"
   }
