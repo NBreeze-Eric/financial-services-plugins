@@ -91,7 +91,7 @@ Create `.claude/settings.json` in your project directory and paste:
     "financial-services-plugins": {
       "source": {
         "source": "github",
-        "repo": "NBreeze-Eric/financial-services-plugins"
+        "repo": "NBreeze-Eric/financial-services-plugins-cn"
       }
     }
   }
@@ -158,7 +158,7 @@ If you get an Excel file in ~5 minutes, you're all set 🎉
 If the above is unclear, copy the prompt below into any AI assistant (Claude / ChatGPT / Qwen / etc.) and it will walk you through:
 
 ```
-我想在我的电脑上安装并使用 https://github.com/NBreeze-Eric/financial-services-plugins
+我想在我的电脑上安装并使用 https://github.com/NBreeze-Eric/financial-services-plugins-cn
 这个仓库。我已经申请了同花顺 iFinD 账号、拿到 bearer token。
 我没用过 Git/GitHub/Claude Code，请一步步带我装：每一步告诉我在哪里输入命令、
 正确的输出应该是什么样的、出错了怎么办。我的操作系统是 Windows / macOS / Linux（请改成你自己的）。

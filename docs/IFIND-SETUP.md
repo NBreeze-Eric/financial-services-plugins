@@ -54,7 +54,7 @@ Keep it private — anyone holding the token can call your iFinD quota.
 ### 4.1 Clone this fork / 克隆本 fork
 
 ```bash
-git clone https://github.com/NBreeze-Eric/financial-services-plugins.git <somewhere-on-your-disk>
+git clone https://github.com/NBreeze-Eric/financial-services-plugins-cn.git <somewhere-on-your-disk>
 ```
 
 ### 4.2 Register the local marketplace / 注册本地 marketplace
